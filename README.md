@@ -21,3 +21,4 @@ The following are some of the images from the dataset:
 ## Results
 
 ## References
+The training data is from a dataset mentioned in the paper: S. Yang, P. Luo, C. C. Loy, and X. Tang, "From Facial Parts Responses to Face Detection: A Deep Learning Approach", in IEEE International Conference on Computer Vision (ICCV), 2015.
