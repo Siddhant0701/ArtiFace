@@ -23,4 +23,4 @@ The following are some of the images from the dataset:
 ## References
 [1] The training data is from a dataset mentioned in the paper: S. Yang, P. Luo, C. C. Loy, and X. Tang, "From Facial Parts Responses to Face Detection: A Deep Learning Approach", in IEEE International Conference on Computer Vision (ICCV), 2015.
 
-[2] I. Goodfellow, "NIPS 2016 Tutorial: Generative Adversarial Networks," in Proceedings of the 30th Conference on Neural Information Processing Systems (NIPS), Barcelona, Spain, Dec. 2016. [Online]. Available: https://papers.nips.cc/paper/6544-nips-2016-tutorial-generative-adversarial-networks. [Accessed: Mar. 21, 2023].
+[2] I. Goodfellow, "NIPS 2016 Tutorial: Generative Adversarial Networks," in Proceedings of the 30th Conference on Neural Information Processing Systems (NIPS), Barcelona, Spain, Dec. 2016. [Online]. Available: https://doi.org/10.48550/arXiv.1701.00160. [Accessed: Mar. 21, 2023].
