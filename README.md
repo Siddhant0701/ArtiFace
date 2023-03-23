@@ -14,7 +14,90 @@ The following are some of the images from the dataset:
 
 [<img src=src/faces.png height=300>](src/faces.png)
 
+The attrbutes for the images also seems to be distributed very evenly. These can be possible incorporated into the model to generate faces with specific attributes in the future.
+
 ## Model Architecture
+
+The model architecture is based on the DCGAN architecture proposed by [Goodfellow et al.](https://arxiv.org/abs/1511.06434). The model consists of two parts: the generator and the discriminator. The generator is a deep convolutional neural network that takes a random vector as input and generates a 64x64x3 image as output. The discriminator is a deep convolutional neural network that takes a 64x64x3 image as input and outputs a probability of the image being real or fake. The generator and discriminator are trained in an adversarial manner. The generator is trained to fool the discriminator into thinking that the generated images are real. The discriminator is trained to correctly classify the real and fake images. The generator and discriminator are trained in an alternating manner. The generator is trained first and then the discriminator is trained. This process is repeated until the generator is able to generate images that are indistinguishable from real images.
+
+The following shows the summary of the generator:
+
+```Model: "Generator"
+_________________________________________________________________
+ Layer (type)                Output Shape              Param #   
+=================================================================
+ dense_9 (Dense)             (None, 524288)            52428800  
+                                                                 
+ batch_normalization_16 (Bat  (None, 524288)           2097152   
+ chNormalization)                                                
+                                                                 
+ leaky_re_lu_26 (LeakyReLU)  (None, 524288)            0         
+                                                                 
+ reshape_4 (Reshape)         (None, 32, 32, 512)       0         
+                                                                 
+ conv2d_transpose_16 (Conv2D  (None, 32, 32, 256)      3276800   
+ Transpose)                                                      
+                                                                 
+ batch_normalization_17 (Bat  (None, 32, 32, 256)      1024      
+ chNormalization)                                                
+                                                                 
+ leaky_re_lu_27 (LeakyReLU)  (None, 32, 32, 256)       0         
+                                                                 
+ conv2d_transpose_17 (Conv2D  (None, 64, 64, 128)      819200    
+ Transpose)                                                      
+                                                                 
+ batch_normalization_18 (Bat  (None, 64, 64, 128)      512       
+ chNormalization)                                                
+                                                                 
+ leaky_re_lu_28 (LeakyReLU)  (None, 64, 64, 128)       0         
+                                                                 
+ conv2d_transpose_18 (Conv2D  (None, 128, 128, 64)     204800    
+ Transpose)                                                      
+                                                                 
+ batch_normalization_19 (Bat  (None, 128, 128, 64)     256       
+ chNormalization)                                                
+                                                                 
+ leaky_re_lu_29 (LeakyReLU)  (None, 128, 128, 64)      0         
+                                                                 
+ conv2d_transpose_19 (Conv2D  (None, 128, 128, 3)      4800      
+ Transpose)                                                      
+                                                                 
+=================================================================
+Total params: 58,833,344
+Trainable params: 57,783,872
+Non-trainable params: 1,049,472
+_________________________________________________________________
+```
+
+The following shows the summary of the discriminator:
+
+```
+Model: "Discriminator"
+_________________________________________________________________
+ Layer (type)                Output Shape              Param #   
+=================================================================
+ conv2d_8 (Conv2D)           (None, 64, 64, 64)        4864      
+                                                                 
+ leaky_re_lu_24 (LeakyReLU)  (None, 64, 64, 64)        0         
+                                                                 
+ dropout_8 (Dropout)         (None, 64, 64, 64)        0         
+                                                                 
+ conv2d_9 (Conv2D)           (None, 32, 32, 128)       204928    
+                                                                 
+ leaky_re_lu_25 (LeakyReLU)  (None, 32, 32, 128)       0         
+                                                                 
+ dropout_9 (Dropout)         (None, 32, 32, 128)       0         
+                                                                 
+ flatten_4 (Flatten)         (None, 131072)            0         
+                                                                 
+ dense_8 (Dense)             (None, 1)                 131073    
+                                                                 
+=================================================================
+Total params: 340,865
+Trainable params: 340,865
+Non-trainable params: 0
+_________________________________________________________________
+```
 
 ## Training
 
