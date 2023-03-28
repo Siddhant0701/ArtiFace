@@ -12,7 +12,7 @@ The dataset used for this project is the CelebFaces Attributes Dataset (CelebA).
 
 The following are some of the images from the dataset:
 
-[<img src=src/faces.png height=300>](src/faces.png)
+[<img src=images/faces.png height=300>](images/faces.png)
 
 The attrbutes for the images also seems to be distributed very evenly. These can be possible incorporated into the model to generate faces with specific attributes in the future.
 
