@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Artifical Face Generator</title>
+  </head>
+
+  <body>
+    <h1>Artifical Face Generator</h1>
+    <img id="image" src="">
+    <br>
+
+    <button onclick="generateImage()">Generate Image</button>
+    <script>
+        function generateImage() {
+            fetch('/generate_image')
+              .then(response => response.json())
+              .then(data => document.getElementById('image').src = data.image);
+          }
+    </script>
+  </body>
+</html>
