@@ -9,12 +9,14 @@ import PIL.Image as Image
 
 from flask import Flask, request, render_template
 
+
 app = Flask(__name__)
 
 # Load your Keras model here
-path = r'../models/test_generator.h5'
+# path = r'../models/test_generator.h5'
+path = r'../checkpoints/generator_epoch_190.h5'
 model = keras.models.load_model(path)
-
+app = Flask(__name__, template_folder='templates', static_folder='staticFiles')
 
 @app.route('/')
 def index():
@@ -24,7 +26,7 @@ def index():
 @app.route('/generate_image', methods=['GET'])
 def generate_image():
 
-    noise = np.random.normal(0, 1, (1, 100))
+    noise = np.random.normal(0, 1, (1, 250))
     gen_imgs = model.predict(noise)
 
     gen_imgs = 0.5 * gen_imgs + 0.5
@@ -48,4 +50,4 @@ def to_base64(img):
     return img_str.decode('utf-8')
 
 if __name__ == '__main__':
-    app.run()
+    app.run(host='0.0.0.0', port=443, debug=True, ssl_context=('ssl/server.cert','ssl/server.key'))

@@ -2,20 +2,28 @@
 <html>
   <head>
     <title>Artifical Face Generator</title>
+    <link rel="stylesheet" href="/staticFiles/style.css">
   </head>
 
   <body>
+    <div class="navbar">
+      <a href="/">Home</a>
+      <a href="#">About</a>
+    </div>
     <h1>Artifical Face Generator</h1>
-    <img id="image" src="">
-    <br>
-
-    <button onclick="generateImage()">Generate Image</button>
-    <script>
-        function generateImage() {
-            fetch('/generate_image')
-              .then(response => response.json())
-              .then(data => document.getElementById('image').src = data.image);
-          }
-    </script>
+    <div class="images">
+      <img id="image" src="">
+    </div>
+    <div class="images">
+      <br>
+      <button onclick="generateImage()">Generate Image</button>
+      <script>
+          function generateImage() {
+              fetch('/generate_image')
+                .then(response => response.json())
+                .then(data => document.getElementById('image').src = data.image);
+            }
+      </script>
+    </div>
   </body>
 </html>

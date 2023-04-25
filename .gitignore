@@ -2,3 +2,5 @@
 .env
 /models
 /checkpoints
+/z_backup
+/old_samples
