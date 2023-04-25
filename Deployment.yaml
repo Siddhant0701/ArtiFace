@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: human-face-generator-delpoyment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: human-face-generator
+  template:
+    metadata:
+      labels:
+        app: human-face-generator
+    spec:
+      containers:
+        - name: human-face-generator
+          image: ninepiece2/human-face-generator:v0.5.0
+          ports:
+            - containerPort: 5000
+          imagePullPolicy: Always
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: human-face-generator-service
+spec:
+  selector:
+    app: human-face-generator-delpoyment
+  ports:
+    - port: 443
+      targetPort: 5000
+  type: LoadBalancer
