@@ -14,7 +14,7 @@ app = Flask(__name__)
 
 # Load your Keras model here
 # path = r'../models/test_generator.h5'
-path = r'../checkpoints/generator_epoch_190.h5'
+path = os.environ.get('FINALMODEL')
 model = keras.models.load_model(path)
 app = Flask(__name__, template_folder='templates', static_folder='staticFiles')
 
@@ -50,4 +50,4 @@ def to_base64(img):
     return img_str.decode('utf-8')
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=443, debug=True, ssl_context=('ssl/server.cert','ssl/server.key'))
+    app.run(host='0.0.0.0', port=5000, debug=True, ssl_context=('ssl/server.cert','ssl/server.key'))
