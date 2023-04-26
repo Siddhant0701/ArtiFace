@@ -41,6 +41,6 @@ COPY checkpoints/generator_epoch_190.h5 .
 # Install all the dependencies required to run the Flask application
 RUN pip install --no-cache-dir -r requirements.txt
 # Expose the Docker container for the application to run on port 5000
-EXPOSE 5000
+EXPOSE 8443
 # The command required to run the Dockerized application
 CMD ["python", "/app/app.py"]

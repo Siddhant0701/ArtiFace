@@ -50,4 +50,4 @@ def to_base64(img):
     return img_str.decode('utf-8')
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=5000, debug=True, ssl_context=('ssl/server.cert','ssl/server.key'))
+    app.run(host='0.0.0.0', port=8443, debug=True, ssl_context=('ssl/server.cert','ssl/server.key'))

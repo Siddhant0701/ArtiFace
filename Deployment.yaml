@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: human-face-generator-delpoyment
+  name: human-face-generator
 spec:
   replicas: 1
   selector:
@@ -15,18 +15,23 @@ spec:
       containers:
         - name: human-face-generator
           image: ninepiece2/human-face-generator:v0.5.0
+          resources:
+            limits:
+              memory: "3Gi"
           ports:
-            - containerPort: 5000
+            - containerPort: 8443
           imagePullPolicy: Always
+      restartPolicy: Always
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: human-face-generator-service
+  name: human-face-generator
 spec:
   selector:
-    app: human-face-generator-delpoyment
+    app: human-face-generator
   ports:
-    - port: 443
-      targetPort: 5000
+    - name: https
+      port: 443
+      targetPort: 8443
   type: LoadBalancer
