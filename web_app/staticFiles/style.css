@@ -26,6 +26,14 @@ td {
     color: white;
 }
 
+p {
+    font-family: verdana;
+    font-size: 20px;
+    color: white;
+    padding-left: 20%;
+    padding-right: 20%;
+}
+
 button {
     background-color: #4CAF50;
     width: 150px;
@@ -36,7 +44,7 @@ button {
     cursor: pointer;
 }
 
-.images {
+.images, .about {
     display: flex;
     justify-content: center;
     align-items: center;

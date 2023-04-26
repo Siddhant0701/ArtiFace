@@ -18,6 +18,10 @@ path = os.environ.get('FINALMODEL')
 model = keras.models.load_model(path)
 app = Flask(__name__, template_folder='templates', static_folder='staticFiles')
 
+@app.route('/About')
+def about():
+    return render_template('about.html')
+
 @app.route('/')
 def index():
     return render_template('index.html')
