@@ -7,7 +7,7 @@ WORKDIR /app
 # Copying all the application files to the working directory
 COPY web_app/ .
 COPY requirements.txt .
-COPY checkpoints/generator_epoch_190.h5 generator.h5
+COPY models/generatorV1.h5 generator.h5
 # Install all the dependencies required to run the Flask application
 RUN pip install --no-cache-dir -r requirements.txt
 # Expose the Docker container for the application to run on port 8443 with ssl/HTTPS
