@@ -147,8 +147,24 @@ Here the images generated are very similar and have very little distinguishable 
 - `Discriminator training` - A variety of different methods were tried to successfully train the GAN in a zero sum game setting.
 
   - `Ratio-based training` - The discriminator was trained once for every 5 times the generator was trained. This was done to ensure that the discriminator doesn't overpower the generator and the generator is able to learn.
+
+[<img src=images/ratio_graph_50.png height=300>](images/ratio_graph_50.png)
+[<img src=images/ratio_graph.png height=300>](images/ratio_graph.png)
+[<img src=images/ratio_samples.png height=300>](images/ratio_samples.png)
+
   - `Decay ratio training` - The discriminator was initially trained once every time the generator was trained for a few epochs and then this ratio was decreased as training went on. 
+
+[<img src=images/decay_graph_50.png height=300>](images/decay_graph_50.png)
+[<img src=images/decay_graph.png height=300>](images/decay_graph.png)
+[<img src=images/decay_samples.png height=300>](images/decay_samples.png)
+
   - `Accuracy-based training` - The discriminator was trained once every time the generator was trained if the accuracy of the discriminator was less than a certain percentage.
+
+[<img src=images/accuracy_graph_50.png height=300>](images/accuracy_graph_50.png)
+[<img src=images/accuracy_graph.png height=300>](images/accuracy_graph.png)
+[<img src=images/accuracy_samples.png height=300>](images/accuracy_samples.png)
+
+For each attempt at fixing the discriminator training a graph was made of the discriminator losses and accuracies as well as samples to qualitatively and quantitatively decern which would yield an improvement in the model. From these results it is clear that the `Accuracy-based training` is the best as it results in the lowest accuracies and the most discernible looking samples.
 
 ## Results
 
