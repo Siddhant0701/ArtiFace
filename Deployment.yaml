@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: human-face-generator
-          image: ninepiece2/human-face-generator:v0.5.0
+          image: ninepiece2/human-face-generator:v1.0.0
           resources:
             limits:
               memory: "3500Mi"
