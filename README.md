@@ -202,7 +202,7 @@ The final model was trained for 100 epochs using the entire dataset and the disc
 [<img src=images/final_graph.jpg height=300>](images/final_graph.jpg)
 
 Here are some early samples during the training:
-  
+
 [<img src=images/results_epoch_5.jpg height=300>](images/results_epoch_5.jpg)
 [<img src=images/results_epoch_15.jpg height=300>](images/results_epoch_15.jpg)
 
@@ -213,9 +213,10 @@ Finally a choice was made based on the quality of the samples amongst the 100 ep
 
 You can also visualize the traininig of the test model and the final model through these gifs:
 
-<b>Test Model</b> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b>Final Model</b>
+<b>Test Model</b> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b>Final Model</b>
 
 [<img src=images/test.gif height=100>](images/test.gif)
+[<img src=images/final_model.gif height=100>](images/final_model.gif)
 
 ## Architecture
 
