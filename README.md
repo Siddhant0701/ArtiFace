@@ -11,7 +11,7 @@
     - [Modifications](#modifications)
     - [Discriminator Training](#discriminator-training)
   - [Results](#results)
-  - [Architecture](#architecture)
+  - [Deployment Architecture](#deployment-architecture)
   - [References](#references)
 
 ## Introduction
@@ -218,7 +218,7 @@ You can also visualize the traininig of the test model and the final model throu
 [<img src=images/test.gif height=100>](images/test.gif)
 [<img src=images/final_model.gif height=100>](images/final_model.gif)
 
-## Architecture
+## Deployment Architecture
 
 The model that was created up to this point is now ready to be used to generate images given ```noise```. To put the model to use a web application was created using ```Flask```  where  random noise is generated and then used to create an image from that noise. To do this, a [Docker Image](Dockerfile) was created using the web application and a selected model layered on top of a ```python:3.10-bullseye``` image. ```SSL``` was added so the flask application would be usable through Cloudflare’s DNS forwarding which is currently configured to run ```HTTPS``` not ```HTTP```. This image is stored in a [Docker Hub Repository]( https://hub.docker.com/repository/docker/ninepiece2/human-face-generator) where there are two versions, one which was used for testing and a second which is for the final model.
 
