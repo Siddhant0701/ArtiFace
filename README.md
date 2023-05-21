@@ -11,6 +11,7 @@
     - [Modifications](#modifications)
     - [Discriminator Training](#discriminator-training)
   - [Results](#results)
+  - [Architecture](#architecture)
   - [References](#references)
 
 ## Introduction
@@ -212,7 +213,28 @@ Finally a choice was made based on the quality of the samples amongst the 100 ep
 
 You can also visualize the traininig of the test model and the final model through these gifs:
 
+<b>Test Model</b> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b>Final Model</b>
+
 [<img src=images/test.gif height=100>](images/test.gif)
+
+## Architecture
+
+The model that was created up to this point is now ready to be used to generate images given ```noise```. To put the model to use a web application was created using ```Flask```  where  random noise is generated and then used to create an image from that noise. To do this, a [Docker Image](Dockerfile) was created using the web application and a selected model layered on top of a ```python:3.10-bullseye``` image. ```SSL``` was added so the flask application would be usable through Cloudflare’s DNS forwarding which is currently configured to run ```HTTPS``` not ```HTTP```. This image is stored in a [Docker Hub Repository]( https://hub.docker.com/repository/docker/ninepiece2/human-face-generator) where there are two versions, one which was used for testing and a second which is for the final model.
+
+For the Deployment of the application MicroK8s Kubernetes was used on Romit’s server which has a deeper explanation [here](https://github.com/NinePiece2/TrueNASHomeServer#appsdocker-and-kubernetes). Two other changes needed to be done so the application would run as needed, the first was a new ```Virtual Service``` added to the ```Load Balancer``` for the new application’s port on the Kubernetes Server. The second was to change the ```Virtual Machine``` that hosed the Kubernetes Server to use ```CPU Host Passthrough``` so the application would recognize that the CPU was ```AVX (Advanced Vector Extensions)``` capable for TensorFlow to run correctly.
+
+The final Kubernetes deployment file can be seen [here](Deployment.yaml).
+
+The Load Balancer Setup can be seen below:
+
+[<img src=images/load_balancer.png height=21>](images/load_balancer.png)
+
+The Pods and Services for the application in Kubernetes can be seen below:
+
+[<img src=images/app_pods.png height=21>](images/app_pods.png)
+[<img src=images/app_service.png height=20>](images/app_service.png)
+
+The application is now available at [https://facegen.ninepiece2.tk/](https://facegen.ninepiece2.tk/).
 
 ## References
 [1] The training data is from a dataset mentioned in the paper: S. Yang, P. Luo, C. C. Loy, and X. Tang, "From Facial Parts Responses to Face Detection: A Deep Learning Approach", in IEEE International Conference on Computer Vision (ICCV), 2015.
