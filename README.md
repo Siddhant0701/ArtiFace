@@ -196,6 +196,24 @@ This shows that the `Accuracy based` method is the most optimal method for train
 
 ## Results
 
+The final model was trained for 100 epochs using the entire dataset and the discriminator was trained using the `Accuracy-based` method described above with a threshold of 0.7(or 70%). The following graph shows the accuracy and loss of the discriminator over time:
+
+[<img src=images/final_graph.jpg height=300>](images/final_graph.jpg)
+
+Here are some early samples during the training:
+  
+[<img src=images/results_epoch_5.jpg height=300>](images/results_epoch_5.jpg)
+[<img src=images/results_epoch_15.jpg height=300>](images/results_epoch_15.jpg)
+
+
+Finally a choice was made based on the quality of the samples amongst the 100 epochs:
+
+[<img src=images/results_chosen.jpg height=300>](images/results_chosen.jpg)
+
+You can also visualize the traininig of the test model and the final model through these gifs:
+
+[<img src=images/test.gif height=100>](images/test.gif)
+
 ## References
 [1] The training data is from a dataset mentioned in the paper: S. Yang, P. Luo, C. C. Loy, and X. Tang, "From Facial Parts Responses to Face Detection: A Deep Learning Approach", in IEEE International Conference on Computer Vision (ICCV), 2015.
 
