@@ -12,11 +12,12 @@
     - [Discriminator Training](#discriminator-training)
   - [Results](#results)
   - [Deployment Architecture](#deployment-architecture)
+  - [Next Steps](#next-steps)
   - [References](#references)
 
 ## Introduction
 
-Human Face Generator is a deep learning project that uses Generative Adversarial Networks (GANs) to generate human faces based on celebrity images. The project uses the CelebFaces Attributes Dataset (CelebA) to train the GANs. The project is implemented in Python using the Keras API and Tensorflow Backend.
+Human Face Generator is a deep learning project that uses `Generative Adversarial Networks` (GANs) to generate human faces based on celebrity images. The project uses the CelebFaces Attributes Dataset (CelebA) to train the GANs. The project is implemented in `Python` using the `Keras API` and `Tensorflow` Backend.
 
 The end goal for the project is to create realistic human faces that can be used for syntehtic data generation and other applications.
 
@@ -236,6 +237,13 @@ The Pods and Services for the application in Kubernetes can be seen below:
 [<img src=images/app_service.png height=20>](images/app_service.png)
 
 The application is now available at [https://facegen.ninepiece2.tk/](https://facegen.ninepiece2.tk/).
+
+## Next Steps
+
+- [ ] Adding more configuration options to the web application during the generation of the image.
+- [ ] Improving the model by using a larger dataset, more epochs, and more training time and possibly even a larger model to improve the quality of the generated images.
+- [ ] Adding more models to the web application to choose from.
+
 
 ## References
 [1] The training data is from a dataset mentioned in the paper: S. Yang, P. Luo, C. C. Loy, and X. Tang, "From Facial Parts Responses to Face Detection: A Deep Learning Approach", in IEEE International Conference on Computer Vision (ICCV), 2015.
