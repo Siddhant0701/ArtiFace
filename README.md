@@ -243,7 +243,7 @@ The application is now available at [https://facegen.ninepiece2.tk/](https://fac
 - [ ] Adding more configuration options to the web application during the generation of the image.
 - [ ] Improving the model by using a larger dataset, more epochs, and more training time and possibly even a larger model to improve the quality of the generated images.
 - [ ] Adding more models to the web application to choose from.
-
+- [ ] Using Cloud for training the model to reduce the training time.
 
 ## References
 [1] The training data is from a dataset mentioned in the paper: S. Yang, P. Luo, C. C. Loy, and X. Tang, "From Facial Parts Responses to Face Detection: A Deep Learning Approach", in IEEE International Conference on Computer Vision (ICCV), 2015.
