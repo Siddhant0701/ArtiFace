@@ -1,7 +1,7 @@
-# Human-Face-Generator
+# ArtiFace: Facial Art Synthesizer
 
 ## Table of Contents
-- [Human-Face-Generator](#human-face-generator)
+- [ArtiFace: Facial Art Synthesizer](#artiface-facial-art-synthesizer)
   - [Table of Contents](#table-of-contents)
   - [Introduction](#introduction)
   - [Exploratory Data Analysis](#exploratory-data-analysis)
@@ -17,7 +17,7 @@
 
 ## Introduction
 
-Human Face Generator is a deep learning project that uses `Generative Adversarial Networks` (GANs) to generate human faces based on celebrity images. The project uses the CelebFaces Attributes Dataset (CelebA) to train the GANs. The project is implemented in `Python` using the `Keras API` and `Tensorflow` Backend.
+ArtiFace is a deep learning project that uses `Generative Adversarial Networks` (GANs) to generate human faces based on celebrity images. The project uses the CelebFaces Attributes Dataset (CelebA) to train the GANs. The project is implemented in `Python` using the `Keras API` and `Tensorflow` Backend.
 
 The end goal for the project is to create realistic human faces that can be used for syntehtic data generation and other applications.
 
@@ -212,7 +212,7 @@ Finally a choice was made based on the quality of the samples amongst the 100 ep
 
 [<img src=images/results_chosen.jpg height=300>](images/results_chosen.jpg)
 
-You can also visualize the traininig of the test model and the final model through these gifs:
+You can also visualize the training of the test model and the final model through these gifs:
 
 <b>Test Model</b> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b>Final Model</b>
 
@@ -223,7 +223,7 @@ You can also visualize the traininig of the test model and the final model throu
 
 The model that was created up to this point is now ready to be used to generate images given ```noise```. To put the model to use a web application was created using ```Flask```  where  random noise is generated and then used to create an image from that noise. To do this, a [Docker Image](Dockerfile) was created using the web application and a selected model layered on top of a ```python:3.10-bullseye``` image. ```SSL``` was added so the flask application would be usable through Cloudflare’s DNS forwarding which is currently configured to run ```HTTPS``` not ```HTTP```. This image is stored in a [Docker Hub Repository]( https://hub.docker.com/repository/docker/ninepiece2/human-face-generator) where there are two versions, one which was used for testing and a second which is for the final model.
 
-For the Deployment of the application MicroK8s Kubernetes was used on Romit’s server which has a deeper explanation [here](https://github.com/NinePiece2/TrueNASHomeServer#appsdocker-and-kubernetes). Two other changes needed to be done so the application would run as needed, the first was a new ```Virtual Service``` added to the ```Load Balancer``` for the new application’s port on the Kubernetes Server. The second was to change the ```Virtual Machine``` that hosed the Kubernetes Server to use ```CPU Host Passthrough``` so the application would recognize that the CPU was ```AVX (Advanced Vector Extensions)``` capable for TensorFlow to run correctly.
+For the Deployment of the application MicroK8s Kubernetes was used on Romit’s server which has a deeper explanation [here](https://github.com/NinePiece2/TrueNASHomeServer#appsdocker-and-kubernetes). Two other changes needed to be done so the application would run as needed, the first was a new ```Virtual Service``` added to the ```Load Balancer``` for the new application’s port on the Kubernetes Server. The second was to change the ```Virtual Machine``` that hosed the Kubernetes Server to use ```CPU Host Passthrough``` so the application would recognize that the CPU was ```AVX (Advanced Vector Extensions)``` capable for TensorFlow to run correctly. Enabling ```SR-VIO``` in the Server’s ```BIOS``` was also necessary for the website to work correctly.
 
 The final Kubernetes deployment file can be seen [here](Deployment.yaml).
 
